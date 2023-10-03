@@ -19,10 +19,12 @@ const Weather = (props) => {
   const error = useSelector((state) => state.weather.error)
   const dispatch = useDispatch();
 
+  // console.log(">>foreacst", forecasts)
   const handleError = () => {
     dispatch(changeError());
   }
 
+  console.log(">>forecast", forecasts)
   return (
     <div className='wrapper'>
       <Search />
@@ -37,7 +39,7 @@ const Weather = (props) => {
 
           <div className='wrapper__current-weather'>
             <div className='location'>
-              {forecasts?.city?.name}
+              {forecasts?.city?.name}, {forecasts?.city?.country}
             </div>
             <div className='weather-box'>
               <div className='temp'>
@@ -54,7 +56,9 @@ const Weather = (props) => {
             <div className='weather-forecast'>
               <Swiper slidesPerView={5} spaceBetween={20} className="mySwiper">
                 {forecasts?.list.map((forecast, index) => {
-                  return <SwiperSlide key={index}><WeatherForecastItem data={forecast} /></SwiperSlide>
+                  return <SwiperSlide key={index}>
+                    <WeatherForecastItem data={forecast} />
+                  </SwiperSlide>
                 })}
 
               </Swiper>

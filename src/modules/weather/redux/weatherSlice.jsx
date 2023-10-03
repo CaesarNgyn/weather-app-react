@@ -17,6 +17,7 @@ export const weatherSlice = createSlice({
     weatherGetSuccess: (state, action) => {
       state.isLoading = false;
       state.error = "";
+      // console.log(">>actuin", action)
       state.forecast = action.payload;
       state.currentWeather = action.payload.list[0];
     },
@@ -24,7 +25,7 @@ export const weatherSlice = createSlice({
       if (action.payload?.data?.message) {
         state.error = action.payload?.data?.message;
       } else {
-        state.error = "Co loi xay ra!";
+        state.error = "Co loi!";
       }
       state.isLoading = false;
     },
@@ -34,6 +35,7 @@ export const weatherSlice = createSlice({
     changeError: (state, action) => {
       state.error = "";
     }
+    /*Add 3 more action get, success and error if a new function is needed*/
   },
 })
 

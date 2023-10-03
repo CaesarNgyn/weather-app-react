@@ -7,7 +7,7 @@ import { convertDay } from '../../../utils/convertDay';
 const WeatherForecastItem = ({ data }) => {
   const currentWeather = useSelector((state) => state.weather.currentWeather);
   const dispatch = useDispatch();
-  console.log(">>current weather", currentWeather)
+  // console.log(">>current weather", currentWeather)
 
   const time = convertTime(data?.dt_txt);
   const day = convertDay(data?.dt_txt);
